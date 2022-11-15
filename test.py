@@ -1,25 +1,28 @@
 
-l=[[1,2,5],[4,5,6],[5,8,9]]
+l=[[7,2,4],[4,6,2],[7,7,7]]
 #for i in range(len(l)):
-#    for j in range(len(l[i])):
+#   for j in range(len(l[i])):
 #        print(l[i][j])
 #print(l[1][2])
 
 def align(L=[]):
     for i in range(len(L)):
-        for j in range(len(L[i])-1):
-            if L[j][i] == L[j+1][i] and L[j][i] == L[j+2][i]:
-                print("c'est aligné1")
-                return True
-            if L[j][i] == L[j][i+1] and L[j][i] == L[j][i+2]:
-                print("c'est aligné2")
-                return True
-            if L[j][i] == L[j+1][i+1] and L[j][i] == L[j+2][i+2]:
-                print("c'est aligné3")
-                return True
-            if L[j][i] == L[j-1][i-1] and L[j][i] == L[j-2][i-2]:
-                print("c'est aligné4")
-                return True
+        for j in range(len(L[i])):
+            try:
+                if L[j][i] == L[j+1][i] and L[j][i] == L[j+2][i]:
+                    print("c'est aligné1")
+                    return True
+                if L[j][i] == L[j][i+1] and L[j][i] == L[j][i+2]:
+                    print("c'est aligné2")
+                    return True
+                if L[j][i] == L[j+1][i+1] and L[j][i] == L[j+2][i+2]:
+                    print("c'est aligné3")
+                    return True
+                if L[j][i] == L[j-1][i-1] and L[j][i] == L[j-2][i-2]:
+                    print("c'est aligné4")
+                    return True
+            except:
+                pass
     return False
 
 def aligner(L=[]):
@@ -49,4 +52,4 @@ def aligner(L=[]):
         return True
     return False
 
-print(aligner(l))
+print(align(l))
