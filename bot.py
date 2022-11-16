@@ -84,22 +84,121 @@ class TicTacToe:
         self.create_board()
         check=[]
         coord =[]
+        turnBot = 1
         #player = 'X' if self.get_random_first_player() == 1 else 'O'
         while True:
             #swapping the turn
             player = "O"
             print( "It's bot turn")
-            turnBot = 1
-            while turnBot == 1:
+            while turnBot != 0:
 
-                rowBot = random.randint(1,3)
-                colBot = random.randint(1,3)
+                rowBot = 1
+                colBot = 1
                 coordBot = [rowBot, colBot]
                 playBot = self.board[rowBot-1][colBot-1]
                 if playBot == "-":
                     self.board[rowBot-1][colBot-1] = player
                     check.append(coordBot)
-                    turnBot = 0
+                    turnBot = turnBot -1
+            cheatBot = 1
+            while cheatBot == 1:
+                if self.board[0][0] == "X" and self.board[0][1] == "X" :
+                    self.board[0][2] ='O'
+                    break
+                if self.board[0][0] == "O" and self.board[0][1] == "O" :
+                    self.board[0][2] ='O'
+                    break
+                if self.board[0][0] == "X" and self.board[0][2] == "X":
+                    self.board[0][1] = 'O'
+                    break
+                if self.board[0][0] == "O" and self.board[0][2] == "O":
+                    self.board[0][1] = 'O'
+                    break
+                if self.board[1][0] == "X" and self.board[1][1] == "X" :
+                    self.board[1][2] = 'O'
+                    break
+                if self.board[1][0] == "O" and self.board[1][1] == "O":
+                    self.board[1][2] = 'O'
+                    break
+                if self.board[1][0] == "X" and self.board[1][2] == "X" :
+                    self.board[1][1] = 'O'
+                    break
+                if self.board[1][0] == "O" and self.board[1][2] == "O":
+                    self.board[1][1] = 'O'
+                    break
+                if self.board[2][0] == "X" and self.board[2][1] == "X":
+                    self.board[2][2] = 'O'
+                    break
+                if self.board[2][0] == "O" and self.board[2][1] == "O":
+                    self.board[2][2] = 'O'
+                    break
+                if self.board[2][0] == "X" and self.board[2][2] == "X":
+                    self.board[2][1] = 'O'
+                    break
+                if self.board[2][0] == "O" and self.board[2][1] == "O":
+                    self.board[2][2] = 'O'
+                    break
+                if self.board[0][0] == "X" and self.board[1][0] == "X" : 
+                    self.board[2][0] = 'O'
+                    break
+                if self.board[0][0] == "O" and self.board[1][0] == "O": 
+                    self.board[2][0] = 'O'
+                    break
+                if self.board[0][0] == "X" and self.board[2][0] == "X" :
+                    self.board[1][0] = 'O'
+                    break
+                if self.board[0][0] == "O" and self.board[2][0] == "O":
+                    self.board[1][0] = 'O'
+                    break
+                if self.board[0][1] == "X" and self.board[1][1] == "X" :
+                    self.board[2][1] = 'O'
+                    break
+                if self.board[0][1] == "O" and self.board[1][1] == "O":
+                    self.board[2][1] = 'O'
+                    break
+                if self.board[0][1] == "X" and self.board[2][1] == "X" :
+                    self.board[1][1] = 'O'
+                    break
+                if self.board[0][1] == "O" and self.board[2][1] == "O":
+                    self.board[1][1] = 'O'
+                    break
+                if self.board[0][2] == "X" and self.board[1][2] == "X" :
+                    self.board[2][2] = 'O'
+                    break
+                if self.board[0][2] == "O" and self.board[1][2] == "O" :
+                    self.board[2][2] = 'O'
+                    break
+                if self.board[0][2] == "X" and self.board[2][2] == "X" :
+                    self.board[1][2] = 'O'
+                    break
+                if  self.board[0][2] == "O" and self.board[2][2] == "O"  :
+                    self.board[1][2] = 'O'
+                    break
+                if self.board[0][0] == "X" and self.board[1][1] == "X":
+                    self.board[2][2] = 'O'
+                    break
+                if self.board[0][0] == "O" and self.board[1][1] == "O":
+                    self.board[2][2] = 'O'
+                    break
+                if self.board[0][0] == "X" and self.board[2][2] == "X" :
+                    self.board[1][1] = 'O'
+                    break
+                if self.board[0][0] == "O" and self.board[2][2] == "O":
+                    self.board[1][1] = 'O'
+                    break
+                if self.board[0][2] == "X" and self.board[1][1] == "X" :
+                    self.board[2][0] = 'O'
+                    break
+                if  self.board[0][2] == "O" and self.board[1][1] == "O":
+                    self.board[2][0] = 'O'
+                    break
+                if self.board[0][2] == "X" and self.board[2][0] == "X" :
+                    self.board[1][1] = 'O'
+                    break
+                if self.board[0][2] == "O" and self.board[2][0] == "O" :
+                    self.board[1][1] = 'O'
+                    break
+                cheatBot = 0
             # checking whether the game is draw or not
             if self.is_board_filled():
                 print("Match Draw!")
