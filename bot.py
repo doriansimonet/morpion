@@ -86,7 +86,26 @@ class TicTacToe:
         coord =[]
         #player = 'X' if self.get_random_first_player() == 1 else 'O'
         while True:
-            player = "X"
+            #swapping the turn
+            player = "O"
+            print( "It's bot turn")
+            turnBot = 1
+            while turnBot == 1:
+
+                rowBot = random.randint(1,3)
+                colBot = random.randint(1,3)
+                coordBot = [rowBot, colBot]
+                playBot = self.board[rowBot-1][colBot-1]
+                if playBot == "-":
+                    self.board[rowBot-1][colBot-1] = player
+                    check.append(coordBot)
+                    turnBot = 0
+            # checking whether the game is draw or not
+            if self.is_board_filled():
+                print("Match Draw!")
+                break
+            
+            player = self.swap_player_turn(player)
             print(f"Player {player} turn")
 
             self.show_board()
@@ -114,25 +133,6 @@ class TicTacToe:
             if self.is_board_filled():
                 print("Match Draw!")
                 break
-
-            #swapping the turn
-            player = self.swap_player_turn(player)
-
-            print( "It's bot turn")
-            turnBot = 1
-            while turnBot == 1:
-
-                rowBot = random.randint(1,3)
-                colBot = random.randint(1,3)
-                coordBot = [rowBot, colBot]
-                playBot = self.board[rowBot-1][colBot-1]
-                if playBot == "-":
-                    self.board[rowBot-1][colBot-1] = player
-                    check.append(coordBot)
-                    print(check)
-                    turnBot = 0
-                else:
-                    print("test")
                     
             if self.is_player_win(player):
                 print(f"Player {player} wins the game!")
