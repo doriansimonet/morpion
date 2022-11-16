@@ -127,7 +127,7 @@ class TicTacToe:
         # showing the final view of board
         print()
         self.show_board()
-        ok
+        
 
 # starting the game
 tic_tac_toe = TicTacToe()
