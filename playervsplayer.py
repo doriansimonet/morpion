@@ -207,24 +207,27 @@ while a!=b :
                         print("Match Draw!")
                         #sortir de la fonction
                         break
-                    
+                    # si le retour de l'execution de la fonction is_player_win avec comme parametre player est vraie
                     if self.is_player_win(player):
+                        #afficher "player", player, "wins the game!"
                         print(f"Player {player} wins the game!")
                         #sortir de la fonction
                         break
 
-                    # checking whether the game is draw or not
-                    if self.is_board_filled():
-                        print("Match Draw!")
-                        #sortir de la fonction
-                        break
                 # showing the final view of board
+                #afficher un vide pour sauter une ligne
                 print()
+                #executer la fonction show_board
                 self.show_board()
+                #afficher un vide pour sauter une ligne
                 print()
+                #afficher "fin du round numéro :", b
                 print("fin du round numéro :", b) 
+                #afficher un vide pour sauter une ligne
                 print()     
 
     # starting the game
+    #initialiser la classe TicTacToe dans tic_tac_toe
     tic_tac_toe = TicTacToe()
+    #executer la fonction start 
     tic_tac_toe.start()
